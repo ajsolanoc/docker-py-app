@@ -1,0 +1,24 @@
+#This is a python app to count visits on a web page
+
+
+FROM python:2.7-slim
+
+MAINTAINER CondorLabs
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+ADD . /app
+# Install any needed packages specified in requirements.txt
+RUN pip install -r requirements.txt
+
+# Make port 80 available in Docker Network
+EXPOSE 80
+
+# Define environment variable
+ENV NAME CondorLabs
+ENV HOSTNAME $(cat /etc/hostname)
+
+# Run app.py when the container launches
+CMD ["python", "app.py"]
