@@ -13,8 +13,8 @@ ADD . /app
 # Install any needed packages specified in requirements.txt
 RUN pip install -r requirements.txt
 
-# Make port 8080 available in Docker Network
-EXPOSE 8080
+# Make port 80 available in Docker Network
+EXPOSE 80
 
 # Define environment variable
 ENV NAME CondorLabs
